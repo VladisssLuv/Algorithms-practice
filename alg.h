@@ -1,0 +1,4 @@
+namespace alg
+{
+	class BF;
+}
