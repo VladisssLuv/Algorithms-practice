@@ -39,3 +39,29 @@ private:
 		return -1;
 	}
 };
+
+class alg::Backpack
+{
+public:
+	template<typename Container>
+	int best_price(const Container& wts, const Container& cost, int W)
+	{
+		size_t n = wts.size();
+		std::vector<std::vector<int> > dp(W + 1, std::vector<int>(n + 1, 0));
+		for (size_t j = 1; j <= n; j++)
+		{
+			for (int w = 1; w <= W; w++)
+			{
+				if (wts[j - 1] <= w)
+				{
+					dp[w][j] = std::max(dp[w][j - 1], dp[w - wts[j - 1]][j - 1] + cost[j - 1]);
+				}
+				else
+				{
+					dp[w][j] = dp[w][j - 1];
+				}
+			}
+		}
+		return dp[W][n];
+	}
+};
