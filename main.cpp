@@ -24,6 +24,22 @@ int main(void)
 
 	std::cout << "best price = " << bp.best_price(w, c, W) << std::endl;
 	//---
+	// пример работы алгоритма здача о 8ми ферзях
+	alg::Queens queens8;
+
+	queens8.setQueen(8);
+	queens8.showBoard();
+
+	//---
+	// пример рабты метод хука-дживса
+	alg::JeevesHook jh;
+	jh.start();
+
+	//--
+	// пример работы задачи о башни
+	std::cout << "TowerOfHanoi: ";
+	alg::TowerOfHanoi th;
+	th.start();
 
 	return 0;
 }
